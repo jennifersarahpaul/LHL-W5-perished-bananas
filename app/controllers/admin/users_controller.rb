@@ -16,7 +16,10 @@ class Admin::UsersController < ApplicationController
   protected
 
   def authorize_user
-    # redirect to blah if user not admin
+    unless current_user.admin?
+      flash[:notice] = "You need to be an admin to access that page"
+      redirect_to root_path
+    end
   end
 
 end
