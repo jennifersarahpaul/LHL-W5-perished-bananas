@@ -1,27 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'reviews/new'
-
-  get 'reviews/create'
-
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'users/new'
-  get 'users/create'
+  resources :users, only: [:new, :create]
+  namespace :admin do
+    resources :users, only: [:index, :destroy]
+  end
 
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
-  resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   
   root to: 'movies#index'
 
 end
 
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
