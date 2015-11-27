@@ -29,4 +29,8 @@ class Movie < ActiveRecord::Base
     end
   end
 
+  def self.search(title)
+    where("title LIKE ?", "%#{title}%")
+  end
+
 end
