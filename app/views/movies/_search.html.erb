@@ -1,7 +1,7 @@
 <%= form_tag('/movies', method: "get") do %>
   <div>
     <%= label_tag :title %><br>
-    <%= text_field_tag :title, params[:title] %>
+    <%= text_field_tag :title %>
   </div>
   <div>
     <%= label_tag :director %><br>
@@ -9,13 +9,15 @@
   </div>
   <div>
     <%= label_tag :runtime_in_minutes %><br>
-    <%= number_field_tag :runtime_in_minutes %>
+    <%= select_tag :runtime_in_minutes, options_for_select([
+      ["All", ""], 
+      ["Under 1.5 hours", 1], 
+      ["1.5 - 2 hours",   2], 
+      ["Over 2 hours",    3]
+    ]) %>
   </div>
   <div>
-    <%= submit_tag "Search", name: 'search'%>
+    <%= submit_tag "Search", name: 'search' %>
+    <%= submit_tag "Clear", type: 'reset' %>
   </div>
 <% end %>
-
-<!-- Have a "start search over" clear button -->
-<!-- The runtime_in_minutes should be a dropdown menu -->
-<!-- "Under 90 minutes", "Between 90 and 120 minutes", "Over 120 Minutes" -->

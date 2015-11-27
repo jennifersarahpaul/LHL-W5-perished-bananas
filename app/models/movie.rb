@@ -6,9 +6,7 @@ class Movie < ActiveRecord::Base
   validates :director, presence: true
   validates :runtime_in_minutes, numericality: {only_integer: true}
   validates :description, presence: true
-  # validates :poster, presence: true
   validates :release_date, presence: true
-
   validate :release_date_is_in_the_past
 
   mount_uploader :poster, PosterUploader
@@ -29,8 +27,20 @@ class Movie < ActiveRecord::Base
     end
   end
 
-  def self.search(title)
-    where("title LIKE ?", "%#{title}%")
+  def self.search_title(search_term)
+    where("title LIKE :term", term: "%#{search_term}%")
+  end
+
+  def self.search_director(search_term)
+    where("director LIKE :term", term: "%#{search_term}%")
+  end
+
+  def self.search_time(search_term)
+    case search_term
+    when '1' then where("runtime_in_minutes <= ?", 90)
+    when '2' then where("runtime_in_minutes > ? AND runtime_in_minutes <= ?", 90, 120)
+    when '3' then where("runtime_in_minutes > ?", 120)
+    end
   end
 
 end
