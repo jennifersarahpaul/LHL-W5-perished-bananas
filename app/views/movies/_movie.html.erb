@@ -1,7 +1,6 @@
 <%= link_to image_tag(m.poster.thumb), movie_path(m) %>
 <h1><%= link_to m.title, movie_path(m) %></h1>
 <h1>Average score: <%= m.review_average %></h1>
-<h3><%= formatted_date(m.release_date) %></h3>
-<h4> Directed by <%= m.director %> | <%= m.runtime_in_minutes %> minutes </h4>
+<h4> Directed by <%= m.director %> | <%= m.runtime_in_minutes %> minutes | Released <%= formatted_date(m.release_date) %></h4>
 <p><%= m.description %></p>
 <hr>
