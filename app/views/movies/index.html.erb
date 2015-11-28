@@ -2,17 +2,7 @@
 
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
-
-  <h2>Search for a movie:</h2>
-  <%= render 'search' %>
+<h2>Search for a movie:</h2>
+<%= render 'search' %>
 <hr>
-
-<% @movie.each do |movie| %>
-  <%= link_to image_tag(movie.poster.thumb), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %></h2>
-  <h1>Average score: <%= movie.review_average %></h1>
-  <h3><%= formatted_date(movie.release_date) %></h3>
-  <h4> Directed by <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes </h4>
-  <p><%= movie.description %></p>
-  <hr>
-<% end %>
+<%= render :partial => "movie", :collection => @movie, :as => :m %>
