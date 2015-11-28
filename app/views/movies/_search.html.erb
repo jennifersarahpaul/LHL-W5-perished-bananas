@@ -1,11 +1,7 @@
 <%= form_tag('/movies', method: "get") do %>
   <div>
-    <%= label_tag :title %><br>
-    <%= text_field_tag :title %>
-  </div>
-  <div>
-    <%= label_tag :director %><br>
-    <%= text_field_tag :director %>
+    <%= label_tag :title_or_director, "Search by a movie's title or director" %><br>
+    <%= text_field_tag :title_or_director %>
   </div>
   <div>
     <%= label_tag :runtime_in_minutes %><br>

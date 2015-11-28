@@ -27,12 +27,8 @@ class Movie < ActiveRecord::Base
     end
   end
 
-  def self.search_title(search_term)
-    where("title LIKE :term", term: "%#{search_term}%")
-  end
-
-  def self.search_director(search_term)
-    where("director LIKE :term", term: "%#{search_term}%")
+  def self.search_title_director(search_term)
+    where("title LIKE :term OR director LIKE :term", term: "%#{search_term}%")
   end
 
   def self.search_time(search_term)
