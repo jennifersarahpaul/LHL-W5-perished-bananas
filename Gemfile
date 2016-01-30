@@ -22,7 +22,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 gem 'carrierwave'
-gem 'rmagick'
+# gem 'rmagick'
 gem 'kaminari'
 gem 'ffaker'
 gem 'pry'

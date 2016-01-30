@@ -2,7 +2,7 @@
 
 class PosterUploader < CarrierWave::Uploader::Base
 
-  include CarrierWave::RMagick
+  # include CarrierWave::RMagick
 
   storage :file
 

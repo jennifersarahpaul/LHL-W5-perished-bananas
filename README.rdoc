@@ -1,28 +1,35 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
 Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
 * Configuration
-
 * Database creation
-
 * Database initialization
-
 * How to run the test suite
-
 * Services (job queues, cache servers, search engines, etc.)
-
 * Deployment instructions
 
-* ...
 
+== README
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Make sure you have Ruby, Rails, and sqlite3 installed. To check: 
+
+$ ruby -v
+$ sqlite3 --version
+$ rails --version
+
+I have ruby 2.0.0p645, sqlite 3.8.10.2, and rails 4.1.6. 
+
+If you don't, then visit the Ruby website (https://www.ruby-lang.org/en/documentation/installation/) on how to install Ruby. To install Rails:
+
+$ gem install rails
+
+If you don't already have it, you will need imagemagick, to support the gem Rmagick. 
+
+To get this app up and running: 
+
+$ bundle install
+
+Starting the server: 
+
+$ bin/rails server
+
+Navigate to localhost:3000 in your browser. 
