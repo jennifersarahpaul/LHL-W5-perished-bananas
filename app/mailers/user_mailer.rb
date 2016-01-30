@@ -1,16 +1,16 @@
 class UserMailer < ActionMailer::Base
-  default from: "notifications@rottenmangoes.com"
+  default from: "notifications@perishedbananas.com"
   layout 'mailer'
 
   def welcome_email(user)
     @user = user
-    @url = 'rottenmangoes.com/login'
-    mail(to: @user.email, subject: 'Welcome to Rotten Mangoes!')
+    @url = 'perishedbananas.com/login'
+    mail(to: @user.email, subject: 'Welcome to Perished Bananas!')
   end
 
   def delete_email(user)
     @user = user
-    @url = 'rottenmangoes.com/movies/:id'
+    @url = 'perishedbananas.com/movies/:id'
     mail(to: @user.email, subject: 'User account has been deactived')
   end
 
